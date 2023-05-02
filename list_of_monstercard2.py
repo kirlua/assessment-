@@ -60,5 +60,14 @@ monsters_9 = {10:
           "stats": "Stealth: 3",
           "stats": "Cunning: 2"},}
 
-def display_monsters():
+print(monsters_0)
+print(monsters_1)
+print(monsters_2)
+print(monsters_3)
+print(monsters_4)
+print(monsters_5)
+print(monsters_6)
+print(monsters_7)
+print(monsters_8)
+print(monsters_9)
 
