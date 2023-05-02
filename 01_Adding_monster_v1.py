@@ -14,24 +14,18 @@ monsters = {
 }
 
 
-# Define a function to add a new monster to the list
 def add_monster():
-    # Ask the user for the name of the new monster
     name = easygui.enterbox("Enter the name of the new monster:")
-
-    # Ask the user for the strength, speed, stealth, and cunning values
     strength = int(easygui.enterbox("Enter the strength value (1-25):"))
     speed = int(easygui.enterbox("Enter the speed value (1-25):"))
     stealth = int(easygui.enterbox("Enter the stealth value (1-25):"))
     cunning = int(easygui.enterbox("Enter the cunning value (1-25):"))
 
-    # Add the new monster and attributes to the dictionary
     monsters[name] = {"Strength": strength, "Speed": speed, "Stealth": stealth, "Cunning": cunning}
 
-    # Show a message box to confirm that the monster was added successfully
     easygui.msgbox(f"{name} was added to the list with attributes: Strength: {strength}, Speed: {speed}, Stealth: {stealth}, Cunning: {cunning}")
 
-# Define a function to display the list of monsters
+
 def display_monsters():
     msg = "List of Monster cards: \n"
     for item, stat in monsters.items():
@@ -39,11 +33,12 @@ def display_monsters():
         for monster_ability in stat:
             msg += f'  {monster_ability }: {stat[monster_ability]}\n'
 
-    # Show the list of monsters in a message box
+
     easygui.msgbox(msg, title="Monster cards")
 
-# Call the add_monster function to add a new monster to the list
 add_monster()
 
-# Call the display_monsters function to display the updated list of monsters
 display_monsters()
+
+# this only lets us enter the name of the monster and typing in the stats of the monster
+# It lets us type over 25 and lower then 1 need to fix
