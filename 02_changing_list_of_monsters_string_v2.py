@@ -44,6 +44,3 @@ def get_monsters_as_string():
 display_monsters()
 add_monster()
 display_monsters()
-
-monsters_string = get_monsters_as_string()
-print(monsters_string)
