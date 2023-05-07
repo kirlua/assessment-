@@ -42,7 +42,7 @@ def get_monsters_as_string():
     return msg
 
 display_monsters()
-#add_monster()
+add_monster()
 display_monsters()
 
 monsters_string = get_monsters_as_string()
