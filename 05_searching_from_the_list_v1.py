@@ -13,22 +13,18 @@ monsters = {
     "Wispghoul": {"Strength": 17, "Speed": 19, "Stealth": 3, "Cunning": 2},
 }
 
+
 def display_monsters():
     msg = "List of Monster cards: \n"
     for item, stat in monsters.items():
-        msg += f"\n {item}: \n"
+        msg += f" {item}: \n"
         for monster_ability in stat:
-            msg += f'   {monster_ability }: {stat[monster_ability]}'
+            msg += f'  {monster_ability }: {stat[monster_ability]}\n'
+
 
     easygui.msgbox(msg, title="Monster cards")
 
-display_monsters()
-
-monsters_to_remove = easygui.enterbox("Enter the monster name to remove: ").capitalize()
-if monsters_to_remove in monsters:
-    del monsters[monsters_to_remove]
-    easygui.msgbox(f"{monsters_to_remove} has been removed from the list")
-else:
-    easygui.msgbox(f"{monsters_to_remove} wasn't in the list")
+def search_monsters():
+    msg = "Search monster cards from list: \n"
 
 display_monsters()
