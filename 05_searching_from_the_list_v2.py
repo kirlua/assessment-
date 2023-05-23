@@ -34,16 +34,21 @@ def get_monsters_as_string():
     return msg
 
 
+
+def search_monsters():
+    monster_to_search = easygui.enterbox("Enter the name of the monster to search: ").capitalize()
+    if monster_to_search in monsters:
+        monster_stats = monsters[monster_to_search]
+        msg = f"{monster_to_search}: \n"
+        for monster_ability in monster_stats:
+            msg += f'   {monster_ability }: {monster_stats[monster_ability]}\n'
+        easygui.msgbox(msg, title="Monster stats")
+    else:
+        easygui.msgbox(f"{monster_to_search} wasn't in the list")
+
+
+display_monsters()
+search_monsters()
 display_monsters()
 
-monster_to_search = easygui.enterbox("Enter the name of the monster to search: ").capitalize()
-if monster_to_search in monsters:
-    monster_stats = monsters[monster_to_search]
-    msg = f"{monster_to_search}: \n"
-    for monster_ability in monster_stats:
-        msg += f'   {monster_ability }: {monster_stats[monster_ability]}\n'
-    easygui.msgbox(msg, title="Monster stats")
-else:
-    easygui.msgbox(f"{monster_to_search} wasn't in the list")
 
-display_monsters()
