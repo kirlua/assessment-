@@ -1,3 +1,4 @@
+
 import easygui
 
 monsters = {
@@ -42,6 +43,7 @@ def remove_monster():
     else:
         easygui.msgbox(f"{monsters_to_remove} wasn't in the list")
 
+
 def make_changes():
     display_monsters()
     monster_to_change = easygui.enterbox("Enter the name of the monster to change: ").capitalize()
@@ -56,8 +58,29 @@ def make_changes():
         easygui.msgbox(f"{monster_to_change} is not in the list.")
 
 
-display_monsters()
-add_monster()
-remove_monster()
-make_changes()
-display_monsters()
+def search_monsters():
+    monster_to_search = easygui.enterbox("Enter the name of the monster to search: ").capitalize()
+    if monster_to_search in monsters:
+        monster_stats = monsters[monster_to_search]
+        msg = f"{monster_to_search}: \n"
+        for monster_ability in monster_stats:
+            msg += f'   {monster_ability }: {monster_stats[monster_ability]}\n'
+        easygui.msgbox(msg, title="Monster stats")
+    else:
+        easygui.msgbox(f"{monster_to_search} wasn't in the list")
+
+
+while True:
+    choice = easygui.buttonbox("What would you like to do?", choices=["Display monsters", "Add monster", "Remove monster", "Make changes to monster", "Search monster", "Exit"])
+    if choice == "Display monsters":
+        display_monsters()
+    elif choice == "Add monster":
+        add_monster()
+    elif choice == "Remove monster":
+        remove_monster()
+    elif choice == "Make changes to monster":
+        make_changes()
+    elif choice == "Search monster":
+        search_monsters()
+    elif choice == "Exit":
+        break
