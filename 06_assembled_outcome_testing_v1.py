@@ -41,14 +41,6 @@ def get_monsters_as_string():
 
     return msg
 
-def remove_monsters_as_string():
-    msg = "List of Monster cards: \n"
-    for item, stat in monsters.item():
-        msg += f" {item}: \n"
-        for monster_ability in stat:
-            msg += f'  {monster_ability }: {stat[monster_ability]}\n '
-
-    return msg
 
 display_monsters()
 add_monster()
