@@ -16,6 +16,7 @@ monsters = {
 
 def add_monster():
     name = easygui.enterbox("Enter the name of the new monster: ")
+    name = name.capitalize()
 
     strength = easygui.integerbox("Enter the strength value between 1 and 25: ", lowerbound=1, upperbound=25)
     speed = easygui.integerbox("Enter the speed value between 1 and 25: ", lowerbound=1, upperbound=25)
