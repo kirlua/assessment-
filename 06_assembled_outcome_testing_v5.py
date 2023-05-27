@@ -1,9 +1,11 @@
+# This code is for Monster game code it displays monster cards lets user to
+# make, remove, make changes and search
 import easygui
 
 # dictionary for original monsters
 # defines a dictionary called monster and in the dictionary there is stats
 # each monster is represented as a key in dictionary
-# inside the key there is also inner dictionary stats liek strength, speed, stealth and cunning
+# inside the key there is also inner dictionary stats like strength, speed, stealth and cunning
 monsters = {
     "Stoneling": {"Strength": 7, "Speed": 1, "Stealth": 25, "Cunning": 15},
     "Vexscream": {"Strength": 1, "Speed": 6, "Stealth": 21, "Cunning": 19},
