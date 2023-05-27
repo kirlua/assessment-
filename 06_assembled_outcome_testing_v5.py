@@ -26,7 +26,7 @@ def add_monster():
         return
     name = name.capitalize()
 
-    # If user typed value below 1 and over 25 program prints value entered is less than lower bound of 1 or greater than 25
+    # If user typed value below 1 and over 25 program prints value is to big or to large
     strength = easygui.integerbox("Enter the strength value between 1 and 25: ", lowerbound=1, upperbound=25)
     # If user types wrong values don't go back to main routine ask them again about the inner value for monster
     # If they press cancel program prints out please type the stat number and goes back to main routine
@@ -34,7 +34,7 @@ def add_monster():
         easygui.msgbox("Please type the stat number.")
         return
 
-    # If user typed value below 1 and over 25 program prints value entered is less than lower bound of 1 or greater than 25
+    # If user typed value below 1 and over 25 program prints value is to big or to large
     speed = easygui.integerbox("Enter the speed value between 1 and 25: ", lowerbound=1, upperbound=25)
     # If user types wrong values don't go back to main routine ask them again about the inner value for monster
     # If they press cancel program prints out please type the stat number and goes back to main routine
@@ -42,7 +42,7 @@ def add_monster():
         easygui.msgbox("Please type the stat number.")
         return
 
-    # If user typed value below 1 and over 25 program prints value entered is less than lower bound of 1 or greater than 25
+    # If user typed value below 1 and over 25 program prints value is to big or to large
     stealth = easygui.integerbox("Enter the stealth value between 1 and 25: ", lowerbound=1, upperbound=25)
     # If user types wrong values don't go back to main routine ask them again about the inner value for monster
     # If they press cancel program prints out please type the stat number and goes back to main routine
@@ -50,7 +50,7 @@ def add_monster():
         easygui.msgbox("Please type the stat number.")
         return
 
-    # If user typed value below 1 and over 25 program prints value entered is less than lower bound of 1 or greater than 25
+    # If user typed value below 1 and over 25 program prints value is to big or to large
     cunning = easygui.integerbox("Enter the cunning value between 1 and 25: ", lowerbound=1, upperbound=25)
     # If user types wrong values don't go back to main routine ask them again about the inner value for monster
     # If they press cancel program prints out please type the stat number and goes back to main routine
