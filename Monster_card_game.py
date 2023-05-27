@@ -1,5 +1,5 @@
-# Monster card game that I can add monsters name or remove the monster name
-# Check the monster from the list or make changes to the existing monster
+# This code is for Monster game code it displays monster cards lets user to
+# make, remove, make changes and search
 import easygui
 
 # dictionary for original monsters
@@ -22,6 +22,7 @@ monsters = {
 
 
 # it is a function for adding monster into the original list
+
 def add_monster():
     name = easygui.enterbox("Enter the name of the new monster: ")
     if name is None:
@@ -29,9 +30,16 @@ def add_monster():
         return
     name = name.capitalize()
 
-    # If user typed value below 1 and over 25 program prints value is to
-    # big or to large
-    strength = easygui.integerbox("Enter the strength value between 1 and 25: ", lowerbound=1, upperbound=25)
+    # Check if the monster name already exists in the dictionary
+    if name in monsters:
+        easygui.msgbox(f"{name} is already in the list. Please enter a \n"
+                       f"different name.")
+        return
+
+    # If user typed value below 1 and over 25 program prints value is to big or
+    # to large
+    strength = easygui.integerbox("Enter the strength value between 1 and\n"
+                                  " 25: ", lowerbound=1, upperbound=25)
     # If user types wrong values don't go back to main routine ask them again
     # about the inner value for monster
     # If they press cancel program prints out please type the stat number and
@@ -40,20 +48,22 @@ def add_monster():
         easygui.msgbox("Please type the stat number.")
         return
 
-    # If user typed value below 1 and over 25 program prints value is to big
-    # or to large
-    speed = easygui.integerbox("Enter the speed value between 1 and 25: ", lowerbound=1, upperbound=25)
-    # If user types wrong values don't go back to main routine ask them again
-    # about the inner value for monster
+    # If user typed value below 1 and over 25 program prints value is to big or
+    # to large
+    speed = easygui.integerbox("Enter the speed value between 1 and \n"
+                               "25: ", lowerbound=1, upperbound=25)
+    # If user types wrong values don't go back to main routine ask them
+    # again about the inner value for monster
     # If they press cancel program prints out please type the stat number and
     # goes back to main routine
     if speed is None:
         easygui.msgbox("Please type the stat number.")
         return
 
-    # If user typed value below 1 and over 25 program prints value is to big or
-    # to large
-    stealth = easygui.integerbox("Enter the stealth value between 1 and 25: ", lowerbound=1, upperbound=25)
+    # If user typed value below 1 and over 25 program prints value is to big
+    # or to large
+    stealth = easygui.integerbox("Enter the stealth value between 1 and \n"
+                                 "25: ", lowerbound=1, upperbound=25)
     # If user types wrong values don't go back to main routine ask them again
     # about the inner value for monster
     # If they press cancel program prints out please type the stat number and
@@ -64,7 +74,8 @@ def add_monster():
 
     # If user typed value below 1 and over 25 program prints value is to big or
     # to large
-    cunning = easygui.integerbox("Enter the cunning value between 1 and 25: ", lowerbound=1, upperbound=25)
+    cunning = easygui.integerbox("Enter the cunning value between 1 and\n"
+                                 " 25: ", lowerbound=1, upperbound=25)
     # If user types wrong values don't go back to main routine ask them again
     # about the inner value for monster
     # If they press cancel program prints out please type the stat number and
@@ -73,7 +84,8 @@ def add_monster():
         easygui.msgbox("Please type the stat number.")
         return
 
-    monsters[name] = {"Strength": strength, "Speed": speed, "Stealth": stealth, "Cunning": cunning}
+    monsters[name] = {"Strength": strength, "Speed": speed, "Stealth": stealth,
+                      "Cunning": cunning}
 
 
 # It is a function for displaying monsters as a list
@@ -125,8 +137,8 @@ def make_changes():
     # If user cancels or leave it blank function prints enter the name of the
     # monster to change
     # Then it goes back to main routine
-    monster_to_change = easygui.enterbox("Enter the name of the monster\n"
-                                         " to change: ")
+    monster_to_change = easygui.enterbox(
+        "Enter the name of the monster to change: ")
     if monster_to_change is None:
         easygui.msgbox("Please enter a name of the monster to change.")
         return
@@ -137,28 +149,37 @@ def make_changes():
     # monster
     if monster_to_change in monsters:
         # The stat numbers should be over1 and below 25
-        strength = easygui.integerbox("Enter the new strength value between \n"
-                                      "1 and 25: ", lowerbound=1, upperbound=25)
+        strength = easygui.integerbox(
+            "Enter the new strength value between 1 and 25: ", lowerbound=1,
+            upperbound=25)
         if strength is None:
             easygui.msgbox("Please type the stat number.")
             return
 
-        speed = easygui.integerbox("Enter the new speed value between 1 and 25: ", lowerbound=1, upperbound=25)
+        speed = easygui.integerbox(
+            "Enter the new speed value between 1 and 25: ", lowerbound=1,
+            upperbound=25)
         if speed is None:
             easygui.msgbox("Please type the stat number.")
             return
 
-        stealth = easygui.integerbox("Enter the new stealth value between 1 and 25: ", lowerbound=1, upperbound=25)
+        stealth = easygui.integerbox(
+            "Enter the new stealth value between 1 and 25: ", lowerbound=1,
+            upperbound=25)
         if stealth is None:
             easygui.msgbox("Please type the stat number.")
             return
 
-        cunning = easygui.integerbox("Enter the new cunning value between 1 and 25: ", lowerbound=1, upperbound=25)
+        cunning = easygui.integerbox(
+            "Enter the new cunning value between 1 and 25: ", lowerbound=1,
+            upperbound=25)
         if cunning is None:
             easygui.msgbox("Please type the stat number.")
             return
-        # If name doesn't exist in dictionary function displays msg that the monster isn't in the list and go back main routine
-        monsters[monster_to_change] = {"Strength": strength, "Speed": speed, "Stealth": stealth, "Cunning": cunning}
+        # If name doesn't exist in dictionary function displays msg that the
+        # monster isn't in the list and go back main routine
+        monsters[monster_to_change] = {"Strength": strength, "Speed": speed,
+                                       "Stealth": stealth, "Cunning": cunning}
         easygui.msgbox(f"{monster_to_change} has been updated.")
     else:
         easygui.msgbox(f"{monster_to_change} is not in the list.")
@@ -166,26 +187,38 @@ def make_changes():
 
 # It is a function called search monsters from existing list that user types
 # Allows user to typed the monster that they want to see
+
 def search_monsters():
-    # Using enterbox function lets user to type the name of the monster that they want to find
-    monster_to_search = easygui.enterbox("Enter the name of the monster to search: ")
-    # If user doesn't enter a name or cancels the function prints Please enter a name of the monster to search
+    # Using enterbox function lets user to type the name of the monster that
+    # they want to find
+    monster_to_search = easygui.enterbox(
+        "Enter the name of the monster to search: ")
+    # If user doesn't enter a name or cancels the function prints Please enter
+    # a name of the monster to search
     # Returns to main routine
     if monster_to_search is None:
         easygui.msgbox("Please enter a name of the monster to search.")
         return
     # If user enters a name in lower case letters Function capitalizes the name
-    # It checks with the key in the dictionary if it is existing or not existing
+    # It checks with the key in the dictionary if it is existing or not
+    # existing
     monster_to_search = monster_to_search.capitalize()
-    # If it is existing in the dictionary function gets the stats and name and prints
+    # If it is existing in the dictionary function gets the stats and name and
+    # prints
     # the function prints it with msg string in msg box titled "Monster stats"
     if monster_to_search in monsters:
         monster_stats = monsters[monster_to_search]
         msg = f"{monster_to_search}: \n"
         for monster_ability in monster_stats:
             msg += f'   {monster_ability}: {monster_stats[monster_ability]}\n'
+        # Add an option to make changes to the searched monster
+        select = easygui.buttonbox("What would you like to do?",
+                                   choices=["Make changes", "Back"])
+        if select == "Make changes":
+            make_changes()
         easygui.msgbox(msg, title="Monster stats")
-    # If name doesn't exist function prints msg box saying monster wasn't in the list
+    # If name doesn't exist function prints msg box saying monster wasn't in
+    # the list
     else:
         easygui.msgbox(f"{monster_to_search} wasn't in the list")
 
@@ -194,7 +227,9 @@ def search_monsters():
 # This repeats until the user clicks exit
 while True:
     choice = easygui.buttonbox("What would you like to do?",
-                               choices=["Display monsters", "Add monster", "Remove monster", "Make changes to monster",
+                               choices=["Display monsters", "Add monster",
+                                        "Remove monster",
+                                        "Make changes to monster",
                                         "Search monster", "Exit"])
     # If user choose display monster the code calls the display_monster
     # function
